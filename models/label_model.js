@@ -10,21 +10,21 @@ var label={
         return db.query("select l.*,u.* from label l,user_tbl u where u.email_id=l.fk_email_id And u.email_id=?",[id],callback);
     },
     addLabel:function(item,callback){
-        return db.query("insert into label values(?,?,?,?,?,?)",[item.cname,item.ownername,item.Address,item.phone,item.requirements,item.fk_email_id],callback);
+        return db.query("insert into label values(?,?,?,?,?,?,?)",[item.id,item.cname,item.ownername,item.Address,item.phone,item.requirements,item.fk_email_id],callback);
     },
 
-    getLabelByCname:function(cname,callback)
+    getLabelById:function(id,callback)
     {
-        return db.query("select * from label where cname=?",[cname],callback);
+        return db.query("select * from label where id=?",[id],callback);
     },
 
-    updateLabel:function(cname,item,callback)
+    updateLabel:function(id,item,callback)
     {
-        return db.query("update label set ownername=?,Address=?,phone=?,requirements=?,fk_email_id=? where cname=?",[item.ownername,item.Address,item.phone,item.requirements,item.fk_email_id,cname],callback);
+        return db.query("update label set cname=?,ownername=?,Address=?,phone=?,requirements=?,fk_email_id=? where id=?",[item.cname,item.ownername,item.Address,item.phone,item.requirements,item.fk_email_id,id],callback);
     },
 
-    delLabel:function(cname,callback){
-        return db.query("delete from label where cname=?",[cname],callback);
+    delLabel:function(id,callback){
+        return db.query("delete from label where id=?",[id],callback);
     },
 
 };

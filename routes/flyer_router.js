@@ -1,9 +1,9 @@
-var label=require('../models/label_model');
+var flyer=require('../models/flyer_model');
 var express=require('express');
 var router=express.Router();
 
 router.get("/",function(req,res,next){
-    label.getAllLabel(function(err,rows){
+    flyer.getAllFlyer(function(err,rows){
         if(err){
             res.json(err);
         }
@@ -15,7 +15,7 @@ router.get("/",function(req,res,next){
 
 router.post('/',function(req,res,next){
  
-    label.addLabel(req.body,function(err,count){
+    flyer.addFlyer(req.body,function(err,count){
       if(err)
       {
       res.json(err);
@@ -29,7 +29,7 @@ router.post('/',function(req,res,next){
 
      router.delete('/:id',function(req,res,next){
  
-        label.delLabel(req.params.id,function(err,count){
+        flyer.delFlyer(req.params.id,function(err,count){
          
         if(err)
           {
@@ -45,7 +45,7 @@ router.post('/',function(req,res,next){
 
          router.put('/:id',function(req,res,next){
  
-            label.updateLabel(req.params.id,req.body,function(err,rows){
+            flyer.updateFlyer(req.params.id,req.body,function(err,rows){
              
             if(err)
               {

@@ -27,9 +27,9 @@ router.post('/',function(req,res,next){
      });
 
 
-     router.delete('/:cname',function(req,res,next){
+     router.delete('/:id',function(req,res,next){
  
-        envelop.delEnvelop(req.params.cname,function(err,count){
+        envelop.delEnvelop(req.params.id,function(err,count){
          
         if(err)
           {
@@ -43,9 +43,9 @@ router.post('/',function(req,res,next){
         });
          });
 
-         router.put('/:cname',function(req,res,next){
+         router.put('/:id',function(req,res,next){
  
-            envelop.updateEnvelop(req.params.cname,req.body,function(err,rows){
+            envelop.updateEnvelop(req.params.id,req.body,function(err,rows){
              
             if(err)
               {

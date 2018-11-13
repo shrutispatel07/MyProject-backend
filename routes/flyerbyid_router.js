@@ -1,10 +1,10 @@
-var visitingcard=require('../models/visitingcards_model');
+var flyer=require('../models/flyer_model');
 var express=require('express');
 var router=express.Router();
 
 
-router.get("/:cname",function(req,res,next){
-    visitingcard.getCardByCname(req.params.cname,function(err,rows){
+router.get("/:id",function(req,res,next){
+    flyer.getFlyerById(req.params.id,function(err,rows){
         if(err){
             res.json(err);
         }

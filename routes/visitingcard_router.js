@@ -27,9 +27,9 @@ router.post('/',function(req,res,next){
      });
 
 
-     router.delete('/:cname',function(req,res,next){
+     router.delete('/:id',function(req,res,next){
  
-        visitingcard.delCard(req.params.cname,function(err,count){
+        visitingcard.delCard(req.params.id,function(err,count){
          
         if(err)
           {
@@ -43,9 +43,9 @@ router.post('/',function(req,res,next){
         });
          });
 
-         router.put('/:cname',function(req,res,next){
+         router.put('/:id',function(req,res,next){
  
-            visitingcard.updateCard(req.params.cname,req.body,function(err,rows){
+            visitingcard.updateCard(req.params.id,req.body,function(err,rows){
              
             if(err)
               {

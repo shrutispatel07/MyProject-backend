@@ -10,21 +10,21 @@ var envelop={
         return db.query("select e.*,u.* from envelop e,user_tbl u where u.email_id=e.fk_email_id And u.email_id=?",[id],callback);
     },
     addEnvelop:function(item,callback){
-        return db.query("insert into envelop values(?,?,?,?,?)",[item.cname,item.Address,item.phone,item.requirements,item.fk_email_id],callback);
+        return db.query("insert into envelop values(?,?,?,?,?,?)",[item.id,item.cname,item.Address,item.phone,item.requirements,item.fk_email_id],callback);
     },
 
-    getEnvelopByCname:function(cname,callback)
+    getEnvelopById:function(id,callback)
     {
-        return db.query("select * from envelop where cname=?",[cname],callback);
+        return db.query("select * from envelop where id=?",[id],callback);
     },
 
-    updateEnvelop:function(cname,item,callback)
+    updateEnvelop:function(id,item,callback)
     {
-        return db.query("update envelop set Address=?,phone=?,requirements=?,fk_email_id=? where cname=?",[item.Address,item.phone,item.requirements,item.fk_email_id,cname],callback);
+        return db.query("update envelop set cname=?,Address=?,phone=?,requirements=?,fk_email_id=? where id=?",[item.cname,item.Address,item.phone,item.requirements,item.fk_email_id,id],callback);
     },
 
-    delEnvelop:function(cname,callback){
-        return db.query("delete from envelop where cname=?",[cname],callback);
+    delEnvelop:function(id,callback){
+        return db.query("delete from envelop where id=?",[id],callback);
     },
 
 };
